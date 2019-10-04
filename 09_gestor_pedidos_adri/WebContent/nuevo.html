@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Registrar nuevo pedido</h1>
+		<form action="Controller?op=doAlta" method="post">
+			<div class="form-group">
+				<label>Producto:</label><input type="text" name="producto" required class="form-control" style="width:30%" placeholder="Producto" autocomplete="name" required/>
+			</div>
+			<div class="form-group">
+				<label>Precio:</label><input type="number" name="precio" required class="form-control" style="width:30%" placeholder="Precio" required/>
+			</div>
+			  <div class="form-group">
+			    <label>Categoría:</label><input type="text" name="categoria" required class="form-control" style="width:30%" placeholder="Categoría" required/>
+			  </div>			 
+			
+			<button type="submit" class="btn btn-default">Guardar</button>
+			
+		</form>
+	</div>
+</body>
+</html>
