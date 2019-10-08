@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<center>
+
 		<form action="Controller?op=doLogin" method="POST">
 		 
 		
@@ -19,7 +19,9 @@
 		</form>
 		<br/>
 		<a href="Controller?op=toRegistro">Registrese</a>
-	</center>
-	<%=request.getAttribute("mensaje") %>
+		
+		<h1>Adri was here</h1>
+
+	
 </body>
 </html>
