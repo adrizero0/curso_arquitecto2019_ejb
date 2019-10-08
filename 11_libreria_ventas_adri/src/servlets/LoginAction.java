@@ -24,17 +24,13 @@ public class LoginAction extends HttpServlet {
 		String user=request.getParameter("user");
 		String pass=request.getParameter("pwd");
 		boolean resultado=false;
-		if(gestion.autenticar(request.getParameter("user"),request.getParameter("pwd"))){
-			request.setAttribute("usuario", gestion.getCliente(user, pass));
+		if(gestion.autenticar(user,pass)){
+			request.getSession().setAttribute("usuario", gestion.getCliente(user, pass));
 			request.setAttribute("temas", gtemas.obtenerTemas());
-            resultado=true;         
-
-		}
-		else{
+            resultado=true;
+        }else{
 			request.setAttribute("mensaje", "Usuario no registrado");			
 		}       
         request.setAttribute("resultado",resultado);
-	}
-	
-
+	}	
 }

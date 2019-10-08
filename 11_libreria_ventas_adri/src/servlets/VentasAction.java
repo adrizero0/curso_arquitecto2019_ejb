@@ -21,8 +21,8 @@ import model.Venta;
 public class VentasAction extends HttpServlet {
 	@EJB
 	DaoVentas dao;
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-		Cliente c=(Cliente)request.getAttribute("usuario");
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Cliente c=(Cliente)request.getSession().getAttribute("usuario");
 		List<Venta> ventas= dao.recuperarVentas(c);
 		request.setAttribute("ventas", ventas);
 	}

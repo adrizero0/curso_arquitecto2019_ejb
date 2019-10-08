@@ -28,7 +28,7 @@ import model.Tema;
     
     @Override
 	public List<Libro> recuperarLibros(){
-    	Query qr=em.createNamedQuery("Libros.findAll");
+    	Query qr=em.createNamedQuery("Libro.findAll");
     	return (List<Libro>)qr.getResultList();
     }
     @Override

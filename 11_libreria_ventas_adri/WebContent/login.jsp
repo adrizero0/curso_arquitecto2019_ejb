@@ -20,7 +20,6 @@
 		<br/>
 		<a href="Controller?op=toRegistro">Registrese</a>
 		
-		<h1>Adri was here</h1>
 
 	
 </body>
