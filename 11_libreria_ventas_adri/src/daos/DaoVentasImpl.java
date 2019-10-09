@@ -20,7 +20,7 @@ public class DaoVentasImpl implements DaoVentas {
 
 	@Override
 	public List<Venta> recuperarVentas(Cliente c) {
-		return (List<Venta>) em.find(Venta.class, c);
+		return c.getVentas();
 	}
 
 }
