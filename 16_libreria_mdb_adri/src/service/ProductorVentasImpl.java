@@ -15,7 +15,7 @@ import model.Venta;
 
 @Stateless
 public class ProductorVentasImpl implements ProductorVentas {
-	@Resource(type=ConnectionFactory.class,lookup = "java:/jms/factorytest")
+	@Resource(type=ConnectionFactory.class,lookup = "java:/jms/factoryventas")
 	ConnectionFactory factory;
 	@Resource(type=Queue.class,lookup = "java:/jms/libreriacola")
 	Queue cola;

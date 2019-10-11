@@ -29,11 +29,9 @@ public class ComprarAction extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Date fecha=new Date();
-		Cliente cliente=(Cliente)request.getSession().getAttribute("cliente");
+		Cliente cliente=(Cliente)request.getSession().getAttribute("usuario");
 		int isbn=Integer.parseInt(request.getParameter("isbn"));
 		Libro libro= daoLibros.recuperarLibrosIsbn(isbn);
 		productor.enviarVenta(new Venta(0,fecha,libro,cliente));
-		//PARA VOLVER A CAPTURAR LOS TEMAS Y MOSTRARLOS EN LA LISTA
-		request.getRequestDispatcher("TemasAction").include(request, response);
 	}
 }
