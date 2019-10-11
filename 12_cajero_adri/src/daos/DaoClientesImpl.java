@@ -4,8 +4,11 @@ import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import model.Cliente;
 import model.Cuenta;
@@ -34,11 +37,15 @@ public class DaoClientesImpl implements DaoClientes {
 			em.remove(cliente);
 		}		
 	}
-
+	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	@Override
 	public List<Cliente> clientesConMovimientosFecha(Date fecha) {
-		// TODO Auto-generated method stub
-		return null;
+		String jpql="Select c From Cliente c join c.cuentas t join t.movimientos m ";
+		jpql+="Where m.fecha=?1";
+		Query qr=em.createQuery(jpql);
+		qr.setParameter(1, fecha);
+		return (List<Cliente>)qr.getResultList();
 	}
 
 }
