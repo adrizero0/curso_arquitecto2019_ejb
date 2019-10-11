@@ -37,6 +37,7 @@ public class Controller extends HttpServlet {
                         break;
                     case "doComprar":
                     	request.getRequestDispatcher("ComprarAction").include(request, response);
+                    	request.getRequestDispatcher("TemasAction").include(request, response);
                         url="temas.jsp";
                         break;
                     case "toRegistro":
