@@ -9,19 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import daos.DaoContactos;
+
 /**
- * Servlet implementation class Controller
+ * Servlet implementation class EliminarAction
  */
-@WebServlet("/Controller")
-public class Controller extends HttpServlet {
-	
+@WebServlet("/EliminarAction")
+public class EliminarAction extends HttpServlet {
+	@EJB
+	DaoContactos dao;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String op=request.getParameter("op");
-		switch(op) {
-			case "doLibros":
-				request.getRequestDispatcher("LibrosAction").forward(request, response);
-				break;
-		}
+		int id=Integer.parseInt(request.getParameter("id"));
+		dao.eliminarContacto(id);
 	}
 
 }

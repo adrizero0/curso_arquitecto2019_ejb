@@ -19,9 +19,6 @@ public class DaoLibrosImpl implements DaoLibros {
 	@Override
 	public List<Libro> librosPorTema(int idTema) {
 		Tema tema=em.find(Tema.class, idTema);
-		return tema.getLibros();
-		
-	}
-
-    
+		return tema.getLibros();		
+	}    
 }

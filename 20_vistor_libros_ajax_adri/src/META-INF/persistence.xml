@@ -4,8 +4,5 @@
 		<jta-data-source>java:/librosDS</jta-data-source>
 		<class>model.Libro</class>
 		<class>model.Tema</class>
-		<properties>
-			<property name="hibernate.enable_lazy_load_no_trans" value="true"/>
-		</properties>
-	</persistence-unit>	
+	</persistence-unit>
 </persistence>
