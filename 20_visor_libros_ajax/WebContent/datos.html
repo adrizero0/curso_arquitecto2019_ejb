@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+	<script type="text/javascript">
+	function lanzarPeticion(){
+		var url="Controller?op=doLibros&idTema="+$("#idTema").val();
+		$.get(url,function(data,status){
+			procesarRespuesta(data);
+		})
+	}
+
+	//PARSEAR LA CADENA DE TEXTO A JSON
+	function procesarRespuesta(data){
+		var json=JSON.parse(data);
+		var tabla="<table border='1'><tr><th>Título</th><th>Autor</th><th>Precio</th>";
+		for (var i=0;i<json.length;i++){
+			tabla+="<tr><td>"+json[i].titulo+"</td><td>"+json[i].autor+"</td><td>"+json[i].precio+"</td>"
+		}
+		tabla+="</table>";
+		$("#tabla").html(tabla);
+	}
+	
+	
+	</script>
+</head>
+<body>
+	Tema:<input type="text" name="idTema" id="idTema"/><br/><br/>
+	<input type="button" onclick="lanzarPeticion();">
+	<br/><br/>
+	<div id="tabla">
+	
+	
+	</div>
+
+</body>
+</html>

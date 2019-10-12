@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<title>Insert title here</title>
+	<script type="text/javascript">
+		function lanzarPeticion(){
+			var url="Controller?op=doContactos";
+			$.get(url,function(data,status){
+				procesarRespuesta(data);
+			})
+		}
+	
+		//PARSEAR LA CADENA DE TEXTO A JSON
+		function procesarRespuesta(data){
+			var json=JSON.parse(data);
+			var tabla="<table border='1'><tr><th>Nombre</th><th>Edad</th><th>Email</th><th></th></tr>";
+// 			for (var i=0;i<json.length;i++){
+// 				tabla+="<tr><td>"+json[i].nombre+"</td><td>"+json[i].edad+"</td><td>"+json[i].email+"</td><td><a href='#'";
+// 				tabla+="onclick='eliminarPeticion("+json[i].idContacto+");'>Eliminar</a></td></tr>";
+// 			}
+
+			$.each(json,function(index,e){
+				tabla+="<tr><td>"+e.nombre+"</td><td>"+e.edad+"</td><td>"+e.email+"</td><td><a href='#'";
+				tabla+="onclick='eliminarPeticion("+e.idContacto+");'>Eliminar</a></td></tr>";
+			});			
+			tabla+="</table>";
+			$("#tabla").html(tabla);
+		}
+		
+		function eliminarPeticion(id){
+			var url="Controller?op=doEliminar&id="+id;
+			$.get(url,function(data,status){
+				procesarRespuesta(data);
+			})
+		}
+	</script>
+</head>
+<body>
+<a href="Controller?op=toDatos">Alta</a>
+<br/><br/>
+<a href="#" onclick="lanzarPeticion();">Mostrar</a>
+	<br/><br/>
+	<div id="tabla"></div>
+</body>
+</html>
