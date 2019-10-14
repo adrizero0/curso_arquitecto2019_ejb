@@ -13,23 +13,23 @@
 	//BUSCAR LA LISTA DE TEMAS
 	function loadTemas(){
 		var url="Controller?op=doTemas";
-		$.get(url,function(data,status){
-			procesarRespuestaTema(data);
-		})
+// 		$.get(url,function(data,status){
+// 			procesarRespuestaTema(data);
+// 		})
 	}
 	
 	//PARSEAR LA CADENA DE TEXTO A JSON
-	function procesarRespuestaTema(data){
-		var json=JSON.parse(data);
-		console.log(json[0].tema);
-		var tema;
-		for (var i=0;i<json.length;i++){
-			console.log(json[i].tema);
-			console.log(json[i].idTema);
-		}
-		$("#tema").html(tema)
-		console.log("entramos a procesarRespuestaTema");
-	}
+// 	function procesarRespuestaTema(data){
+// 		var json=JSON.parse(data);
+// 		var tema,idTema;
+// 		for (var i=0;i<json.length;i++){
+// 			tema+=json[i].tema;
+// 			idTema+=json[i].idTema;
+// 		}
+// 		$("#idTema").html(idTema);
+// 		$("#tema").html(tema);
+// 		console.log("entramos a procesarRespuestaTema");
+// 	}
 
 	//BUSCAR LIBRO POR TEMA
 	function lanzarPeticion(idTema){
@@ -61,7 +61,9 @@
 		<select name="tema" id="tema" onchange="lanzarPeticion(this.value);">
 			<option value="0">Selecciona tema</option>
 			<option value="0">Todos</option>
-			<option value="1">El 1</option>
+			<c:forEach var="t" items="${requestScope.temas}">
+				<option value="${t.idTema}">${t.tema}</option>				
+			</c:forEach>
 		</select>
 		<br/><br/>	
     </div>
