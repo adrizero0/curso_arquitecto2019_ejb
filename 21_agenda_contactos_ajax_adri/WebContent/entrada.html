@@ -24,7 +24,7 @@
 			$.each(json,function(index,e){
 				tabla+="<tr><td>"+e.nombre+"</td><td>"+e.edad+"</td><td>"+e.email+"</td><td><a href='#'";
 				tabla+="onclick='eliminarPeticion("+e.idContacto+");'>Eliminar</a></td></tr>";
-			});			
+			});
 			tabla+="</table>";
 			$("#tabla").html(tabla);
 		}
