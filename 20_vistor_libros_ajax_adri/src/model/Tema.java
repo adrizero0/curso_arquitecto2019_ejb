@@ -27,6 +27,14 @@ public class Tema implements Serializable {
 
 	public Tema() {
 	}
+	
+
+	public Tema(int idTema, String tema) {
+		super();
+		this.idTema = idTema;
+		this.tema = tema;
+	}
+
 
 	public int getIdTema() {
 		return this.idTema;
