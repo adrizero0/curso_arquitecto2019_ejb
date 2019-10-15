@@ -20,9 +20,11 @@ public class Controller extends HttpServlet {
 				request.getRequestDispatcher("LibrosAction").forward(request, response);
 				return;
 			case "doTemas":
-				request.getRequestDispatcher("TemasAction").forward(request, response);
-				return;
+				request.getRequestDispatcher("TemasAction").include(request, response);
+				request.getRequestDispatcher("datos.jsp").forward(request, response);
+                break;
 		}
+		
 	}
 
 }

@@ -30,21 +30,6 @@ public class TemasAction extends HttpServlet {
 	DaoTemas dao;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("temas", dao.obtenerTemas());
-//		List<Tema> temas=dao.obtenerTemas();
-//		PrintWriter out=response.getWriter();
-//		response.setContentType("text/plain");
-//		out.println(convertirJson(temas));
+		request.getRequestDispatcher("datos.jsp").forward(request, response);
 	}
-	
-//	private String convertirJson(List<Tema> temas) {
-//		JSONArray array=new JSONArray();
-//		for(Tema te:temas) {
-//			JSONObject obj=new JSONObject();
-//			obj.put("idTema", te.getIdTema());
-//			obj.put("tema", te.getTema());
-//			array.add(obj);			
-//		}
-//		return array.toJSONString();
-//	}
-
 }
