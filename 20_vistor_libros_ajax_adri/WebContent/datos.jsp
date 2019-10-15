@@ -1,35 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<meta charset="ISO-8859-1">
-<meta http-equiv="Content-Type" content="text/html;  charset=ISO-8859-1" >
 <title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html;  charset=ISO-8859-1" >
+
 	<script type="text/javascript">
-	
-	//BUSCAR LA LISTA DE TEMAS
-	function loadTemas(){
-		var url="Controller?op=doTemas";
-// 		$.get(url,function(data,status){
-// 			procesarRespuestaTema(data);
-// 		})
-	}
-	
-	//PARSEAR LA CADENA DE TEXTO A JSON
-// 	function procesarRespuestaTema(data){
-// 		var json=JSON.parse(data);
-// 		var tema,idTema;
-// 		for (var i=0;i<json.length;i++){
-// 			tema+=json[i].tema;
-// 			idTema+=json[i].idTema;
-// 		}
-// 		$("#idTema").html(idTema);
-// 		$("#tema").html(tema);
-// 		console.log("entramos a procesarRespuestaTema");
-// 	}
 
 	//BUSCAR LIBRO POR TEMA
 	function lanzarPeticion(idTema){
@@ -50,15 +28,14 @@
 		$("#tabla").html(tabla);
 	}
 	
-	
 	</script>
 </head>
-<body onload="loadTemas()">
+<body>
      
-    <div >
+    <div>
         <h1>Seleccione Tema</h1>
-        <br/><br/>		
-		<select name="tema" id="tema" onchange="lanzarPeticion(this.value);">
+        <br/><br/>    
+		<select name="tema" onchange="lanzarPeticion(this.value);">
 			<option value="0">Selecciona tema</option>
 			<option value="0">Todos</option>
 			<c:forEach var="t" items="${requestScope.temas}">
