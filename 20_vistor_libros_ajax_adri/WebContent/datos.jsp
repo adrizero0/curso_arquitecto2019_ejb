@@ -10,26 +10,7 @@
 <title>Insert title here</title>
 	<script type="text/javascript">
 	
-	//BUSCAR LA LISTA DE TEMAS
-	function loadTemas(){
-		var url="Controller?op=doTemas";
-// 		$.get(url,function(data,status){
-// 			procesarRespuestaTema(data);
-// 		})
-	}
 	
-	//PARSEAR LA CADENA DE TEXTO A JSON
-// 	function procesarRespuestaTema(data){
-// 		var json=JSON.parse(data);
-// 		var tema,idTema;
-// 		for (var i=0;i<json.length;i++){
-// 			tema+=json[i].tema;
-// 			idTema+=json[i].idTema;
-// 		}
-// 		$("#idTema").html(idTema);
-// 		$("#tema").html(tema);
-// 		console.log("entramos a procesarRespuestaTema");
-// 	}
 
 	//BUSCAR LIBRO POR TEMA
 	function lanzarPeticion(idTema){
