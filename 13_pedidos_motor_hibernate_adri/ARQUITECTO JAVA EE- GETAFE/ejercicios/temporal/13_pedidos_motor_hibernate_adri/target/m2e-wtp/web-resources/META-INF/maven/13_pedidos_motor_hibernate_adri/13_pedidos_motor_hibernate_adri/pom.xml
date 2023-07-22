@@ -37,7 +37,7 @@
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-core</artifactId>
-		    <version>5.4.2.Final</version>
+		    <version>5.4.24.Final</version>
 		    
 <!-- 		    METER ESTAS LINEAS SI AL METER EL HIBERNATE, TE SALE UN ERROR QUE DICE ALGO DE DOM4J EXCEPTION -->
 <!-- 		    <scope>provided</scope> 
